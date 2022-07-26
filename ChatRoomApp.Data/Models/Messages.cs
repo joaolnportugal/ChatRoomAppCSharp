@@ -43,10 +43,6 @@ namespace ChatRoomApp.Data.Models
                 .IsRequired();
 
 
-
-            //(x => x.UserColor)
-            //.WithOne(x => User).HasForeignKey(x => x.UserId);
-
         }
     }
 }

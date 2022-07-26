@@ -1,6 +1,6 @@
-namespace ChatRoomApp.Models
+namespace ChatRoomApp.Web.Models
 {
-    public class ErrorViewModel
+    public record ErrorViewModel
     {
         public string? RequestId { get; set; }
 

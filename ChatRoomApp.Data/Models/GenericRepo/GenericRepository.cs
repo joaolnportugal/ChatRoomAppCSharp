@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace ChatRoomApp.Data.Models.GenericRepo
 {
     public interface IGenericRepository<TEntity>
@@ -29,6 +30,7 @@ namespace ChatRoomApp.Data.Models.GenericRepo
         {
             this._dbContext = dbContext;
             //this.dbSet = _dbContext.Set<TEntity>();
+                
         }
 
         public IQueryable<TEntity> PrepareQuery() =>

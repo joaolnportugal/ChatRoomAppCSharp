@@ -1,8 +1,8 @@
-﻿using ChatRoomApp.Models;
+﻿using ChatRoomApp.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace ChatRoomApp.Controllers
+namespace ChatRoomApp.Web.Controllers
 {
     public class HomeController : Controller
     {

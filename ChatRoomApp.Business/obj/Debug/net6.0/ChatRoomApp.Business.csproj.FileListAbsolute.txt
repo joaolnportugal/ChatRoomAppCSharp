@@ -12,3 +12,6 @@ C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp.Business\obj\Debug\net6.0\refint\Ch
 C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp.Business\obj\Debug\net6.0\ChatRoomApp.Business.pdb
 C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp.Business\obj\Debug\net6.0\ChatRoomApp.Business.genruntimeconfig.cache
 C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp.Business\obj\Debug\net6.0\ref\ChatRoomApp.Business.dll
+C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp.Business\bin\Debug\net6.0\ChatRoomApp.Data.dll
+C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp.Business\bin\Debug\net6.0\ChatRoomApp.Data.pdb
+C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp.Business\obj\Debug\net6.0\ChatRoomApp.Business.csproj.CopyComplete

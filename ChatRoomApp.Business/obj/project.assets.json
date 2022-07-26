@@ -634,6 +634,21 @@
             "rid": "win"
           }
         }
+      },
+      "ChatRoomApp.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.7",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.7",
+          "Microsoft.Extensions.DependencyInjection": "6.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ChatRoomApp.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ChatRoomApp.Data.dll": {}
+        }
       }
     }
   },
@@ -1854,10 +1869,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "ChatRoomApp.Data/1.0.0": {
+      "type": "project",
+      "path": "../ChatRoomApp.Data/ChatRoomApp.Data.csproj",
+      "msbuildProject": "../ChatRoomApp.Data/ChatRoomApp.Data.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "ChatRoomApp.Data >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 6.0.7",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.7",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.7",
@@ -1896,7 +1917,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Code\\BlissAcademy\\ChatRoomApp\\ChatRoomApp.Data\\ChatRoomApp.Data.csproj": {
+              "projectPath": "C:\\Code\\BlissAcademy\\ChatRoomApp\\ChatRoomApp.Data\\ChatRoomApp.Data.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
