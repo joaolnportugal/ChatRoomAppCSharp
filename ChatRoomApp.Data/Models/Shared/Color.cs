@@ -48,3 +48,4 @@ namespace ChatRoomApp.Data.Models.Shared
         /// </summary>
         White = 80
     }
+}

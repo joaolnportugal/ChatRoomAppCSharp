@@ -1,0 +1,8 @@
+C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp\obj\Debug\net6.0\ChatRoomApp.Web.csproj.AssemblyReference.cache
+C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp\obj\Debug\net6.0\ChatRoomApp.Web.GeneratedMSBuildEditorConfig.editorconfig
+C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp\obj\Debug\net6.0\ChatRoomApp.Web.AssemblyInfoInputs.cache
+C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp\obj\Debug\net6.0\ChatRoomApp.Web.AssemblyInfo.cs
+C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp\obj\Debug\net6.0\ChatRoomApp.Web.csproj.CoreCompileInputs.cache
+C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp\obj\Debug\net6.0\ChatRoomApp.Web.MvcApplicationPartsAssemblyInfo.cache
+C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp\obj\Debug\net6.0\ChatRoomApp.Web.RazorAssemblyInfo.cache
+C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp\obj\Debug\net6.0\ChatRoomApp.Web.RazorAssemblyInfo.cs

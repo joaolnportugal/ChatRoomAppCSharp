@@ -1,0 +1,14 @@
+C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp.Business\bin\Debug\net6.0\ChatRoomApp.Business.deps.json
+C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp.Business\bin\Debug\net6.0\ChatRoomApp.Business.runtimeconfig.json
+C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp.Business\bin\Debug\net6.0\ChatRoomApp.Business.dll
+C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp.Business\bin\Debug\net6.0\ChatRoomApp.Business.pdb
+C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp.Business\obj\Debug\net6.0\ChatRoomApp.Business.csproj.AssemblyReference.cache
+C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp.Business\obj\Debug\net6.0\ChatRoomApp.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp.Business\obj\Debug\net6.0\ChatRoomApp.Business.AssemblyInfoInputs.cache
+C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp.Business\obj\Debug\net6.0\ChatRoomApp.Business.AssemblyInfo.cs
+C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp.Business\obj\Debug\net6.0\ChatRoomApp.Business.csproj.CoreCompileInputs.cache
+C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp.Business\obj\Debug\net6.0\ChatRoomApp.Business.dll
+C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp.Business\obj\Debug\net6.0\refint\ChatRoomApp.Business.dll
+C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp.Business\obj\Debug\net6.0\ChatRoomApp.Business.pdb
+C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp.Business\obj\Debug\net6.0\ChatRoomApp.Business.genruntimeconfig.cache
+C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp.Business\obj\Debug\net6.0\ref\ChatRoomApp.Business.dll
