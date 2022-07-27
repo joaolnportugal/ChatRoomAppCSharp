@@ -3,14 +3,14 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ChatRoomApp.Web.Models
 {
-    public record NewUserViewModel
+    public record LogInViewModel
     {
         [Display(Name = "Name", Prompt = "Todo list name")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Please provide a name for the todo list")]
         public string? Name { get; set; }
         public List<UserColor> AvailableColors { get; set; }
 
-        public NewUserViewModel()
+        public LogInViewModel()
         {
             AvailableColors = Enum.GetValues<Color>().Select(c => new UserColor(c)).ToList();
         }

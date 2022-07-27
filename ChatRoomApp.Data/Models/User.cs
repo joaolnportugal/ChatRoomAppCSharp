@@ -15,6 +15,8 @@ namespace ChatRoomApp.Data.Models
         public Color UserColor { get; set; }      
         public ICollection<Messages> Messages { get; set; }
         public bool isTyping { get; set; }
+        public bool isLoggedIn { get; set; }
+
     }
 
 
@@ -33,7 +35,9 @@ namespace ChatRoomApp.Data.Models
             builder.Property(x => x.UserColor)
                 .HasDefaultValue(Color.DarkBlue)
                 .IsRequired();
-
+            builder.Property(x => x.isLoggedIn)
+                .HasDefaultValue(false)
+                .IsRequired();
             
         }
     }
