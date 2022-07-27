@@ -1,5 +1,30 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model LogInViewModel
+
+<div>
+    <div class="row">
+        <div class="col-9">
+            <h1>TODO Lists</h1>
+        </div>
+        <div class="col-3 text-end">
+            <a href="@Url.Action("new", "todolist")" class="btn btn-outline-primary mb-4">
+                <span class="fas fa-plus pr-1"></span> New Todo List
+            </a>
+        </div>
+    </div>
+    @foreach (var logIn in Model.UserList)
+    {
+        <a href="@Url.Action("view", "todolist", new { id = logIn.Id})">
+            <div class="card row p-4 mb-3 @logIn.UserColor">
+                <div class="container row">
+                    <div class="col-9">
+                        <div class="fs-1">@logIn.UserName</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    }
+</div>
+
+
+
+       

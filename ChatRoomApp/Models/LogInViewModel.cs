@@ -1,4 +1,5 @@
-﻿using ChatRoomApp.Data.Models.Shared;
+﻿using ChatRoomApp.Data.Models;
+using ChatRoomApp.Data.Models.Shared;
 using System.ComponentModel.DataAnnotations;
 
 namespace ChatRoomApp.Web.Models
@@ -8,6 +9,8 @@ namespace ChatRoomApp.Web.Models
         [Display(Name = "Name", Prompt = "Todo list name")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Please provide a name for the todo list")]
         public string? Name { get; set; }
+        public List<User> UserList { get; set; } = new List<User>();
+        public int SelectedColor { get; set; }
         public List<UserColor> AvailableColors { get; set; }
 
         public LogInViewModel()
@@ -39,4 +42,5 @@ namespace ChatRoomApp.Web.Models
                 };
             }
         }
+    }
 }
