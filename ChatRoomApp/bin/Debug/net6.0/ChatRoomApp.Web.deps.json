@@ -9,7 +9,6 @@
       "ChatRoomApp.Web/1.0.0": {
         "dependencies": {
           "ChatRoomApp.Business": "1.0.0",
-          "ChatRoomApp.Data": "1.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.7",
           "Microsoft.EntityFrameworkCore.Design": "6.0.7",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.7",

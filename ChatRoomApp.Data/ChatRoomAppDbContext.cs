@@ -23,17 +23,12 @@ namespace ChatRoomApp.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly(), t => t.FullName.StartsWith("TodoListManager.Data", StringComparison.OrdinalIgnoreCase));
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly(), t => t.FullName.StartsWith("ChatRoomApp.Data", StringComparison.OrdinalIgnoreCase));
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
 
-        }
-
-        internal DbSet<EntityBase>? Set<T>()
-        {
-            throw new NotImplementedException();
         }
     }
 }

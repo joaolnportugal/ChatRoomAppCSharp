@@ -3,28 +3,46 @@
 <div>
     <div class="row">
         <div class="col-9">
-            <h1>TODO Lists</h1>
+            <h1>Bliss ChatRoom</h1>
         </div>
-        <div class="col-3 text-end">
-            <a href="@Url.Action("new", "todolist")" class="btn btn-outline-primary mb-4">
-                <span class="fas fa-plus pr-1"></span> New Todo List
-            </a>
+        <h3 class="mb-3">NewUser</h3>
+
+<form asp-controller="chatroom" asp-action="index" method="post">
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+        
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Background Color</label>
+        <div class="form-control">
+            @foreach (var color in Model.AvailableColors)
+            {
+                <input type="radio" class="btn-check" asp-for="SelectedColor" id="@color.Name" value="@color.Id" autocomplete="off">
+                <label class="btn @color.CssClassName" for="@color.Name">@color.Name</label>
+            }
         </div>
     </div>
-    @foreach (var logIn in Model.UserList)
+
+    <button type="submit" class="btn btn-outline-primary">
+        <span class="fas fa-save pe-2"></span>Enter
+    </button>
+    </form>
+
+    </div>
+     @foreach (var user in Model.UserList)
     {
-        <a href="@Url.Action("view", "todolist", new { id = logIn.Id})">
-            <div class="card row p-4 mb-3 @logIn.UserColor">
+        <a href="@Url.Action("view", "user", new { id = user.Id})">
+            <div class="card row p-4 mb-3 @user.UserColor">
                 <div class="container row">
                     <div class="col-9">
-                        <div class="fs-1">@logIn.UserName</div>
+                        <div class="fs-1">@user.UserName</div>
                     </div>
+                    
                 </div>
             </div>
         </a>
     }
 </div>
 
-
-
-       

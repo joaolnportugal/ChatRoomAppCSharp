@@ -206,9 +206,6 @@
             "projectReferences": {
               "C:\\Code\\BlissAcademy\\ChatRoomApp\\ChatRoomApp.Business\\ChatRoomApp.Business.csproj": {
                 "projectPath": "C:\\Code\\BlissAcademy\\ChatRoomApp\\ChatRoomApp.Business\\ChatRoomApp.Business.csproj"
-              },
-              "C:\\Code\\BlissAcademy\\ChatRoomApp\\ChatRoomApp.Data\\ChatRoomApp.Data.csproj": {
-                "projectPath": "C:\\Code\\BlissAcademy\\ChatRoomApp\\ChatRoomApp.Data\\ChatRoomApp.Data.csproj"
               }
             }
           }

@@ -16,7 +16,6 @@ namespace ChatRoomApp.Data.Models.GenericRepo
         TEntity Find(int id);
 
         void Add(TEntity entity);
-        void Delete(TEntity entity);
         int Save();
     }
 
@@ -29,7 +28,7 @@ namespace ChatRoomApp.Data.Models.GenericRepo
         public GenericRepository(ChatRoomAppDbContext dbContext)
         {
             this._dbContext = dbContext;
-            //this.dbSet = _dbContext.Set<TEntity>();
+            this.dbSet = _dbContext.Set<TEntity>();
                 
         }
 
@@ -42,21 +41,6 @@ namespace ChatRoomApp.Data.Models.GenericRepo
         public void Add(TEntity entity) =>
             dbSet.Add(entity);
 
-        public void Delete(TEntity entity)
-        {
-            if (_dbContext.Entry(entity).State == EntityState.Detached)
-            {
-                dbSet.Attach(entity);
-            }
-            dbSet.Remove(entity);
-
-        }
-
-        public virtual void Delete(object id)
-        {
-            TEntity entity = dbSet.Find(id);
-            Delete(entity);
-        }
 
 
         public int Save()

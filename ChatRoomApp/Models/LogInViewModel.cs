@@ -7,7 +7,7 @@ namespace ChatRoomApp.Web.Models
     public record LogInViewModel
     {
         [Display(Name = "Name", Prompt = "Todo list name")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Please provide a name for the todo list")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Please insert a valid Username")]
         public string? Name { get; set; }
         public List<User> UserList { get; set; } = new List<User>();
         public int SelectedColor { get; set; }

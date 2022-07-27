@@ -1,6 +1,8 @@
 ﻿@model ViewChatRoomAppViewModel
 <div>
-    @Html.ActionLink("Logout", "index", "ChatRoom")
+    <a href="@Url.Action("Index", "ChatRoom")" class="btn btn-outline-danger">
+        <span class="fas fa-cancel pe-2"></span>logout
+    </a>
 </div>
 <div class="card">
     <div class="card-header">
@@ -20,8 +22,8 @@
             </div>
         </div>
     </div>
-    <ul class="list-group list-group-flush">
-        @*@foreach (var task in Model.Tasks)
+    @*<ul class="list-group list-group-flush">
+        foreach (var task in Model.Tasks)
         {
             <li class="list-group-item">
                 <div class="row @(task.IsComplete ? "text-decoration-line-through" : "")">
@@ -44,70 +46,70 @@
                     </div>
                 </div>
             </li>
-        }*@
-    </ul>
+        }
+  </ul>*@
     <div class="input-group mt-3">
         <input type="text" class="form-control" placeholder="Send Message" aria-label="Send Message" aria-describedby="button-send-message">
         <button class="btn btn-primary" type="button" id="button-send-message" data-sendmessage-id="@Model.Id">Add</button>
     </div>
 </div>
 
-@*@section Scripts {
+@*section Scripts {
 <script>
-    //$(function() {
-    //    var deleteSelector = '[data-action="deleteTask"]';
-    //    var doneSelector = '[data-action="toggleDone"]';
-    //    var addTaskSelector = "#button-add-task";
+    $(function() {
+        var deleteSelector = '[data-action="deleteTask"]';
+        var doneSelector = '[data-action="toggleDone"]';
+        var addTaskSelector = "#button-add-task";
 
-    //    $(deleteSelector).click(function() {
-    //        var that = $(this);
-    //        $.ajax('/api/todolist/task/delete?todolistid=' + that.data('todolist-id') + '&taskid=' + that.data('task-id'),
-    //        {
-    //            method: 'POST',
-    //            success: function(jqXHR, textStatus) {
-    //                location.reload();
-    //            },
-    //            error: function(jqXHR, textStatus, errorThrown) {
-    //                alert(textStatus);
-    //            }
-    //        });
-    //    });
+        $(deleteSelector).click(function() {
+            var that = $(this);
+            $.ajax('/api/todolist/task/delete?todolistid=' + that.data('todolist-id') + '&taskid=' + that.data('task-id'),
+            {
+                method: 'POST',
+                success: function(jqXHR, textStatus) {
+                    location.reload();
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    alert(textStatus);
+                }
+            });
+        });
 
-        //$(doneSelector).click(function() {
-        //    var that = $(this);
-        //    $.ajax('/api/todolist/task/complete?todolistid=' + that.data('todolist-id') + '&taskid=' + that.data('task-id'),
-        //    {
-        //        method: 'POST',
-        //        success: function(jqXHR, textStatus) {
-        //            location.reload();
-        //        },
-        //        error: function(jqXHR, textStatus, errorThrown) {
-        //            alert(textStatus);
-        //        }
-        //    });
-        //});
+        $(doneSelector).click(function() {
+            var that = $(this);
+            $.ajax('/api/todolist/task/complete?todolistid=' + that.data('todolist-id') + '&taskid=' + that.data('task-id'),
+            {
+                method: 'POST',
+                success: function(jqXHR, textStatus) {
+                    location.reload();
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    alert(textStatus);
+                }
+            });
+        });
 
-        //$(addTaskSelector).click(function() {
-        //    var that = $(this);
-        //    var input = that.siblings("input");
-        //    var select = that.siblings("select");
+        $(addTaskSelector).click(function() {
+            var that = $(this);
+            var input = that.siblings("input");
+            var select = that.siblings("select");
             
-        //    if(input.val() != '')
-        //    {
-        //        $.ajax('/api/todolist/task?todolistid=' + that.data('todolist-id'),
-        //        {
-        //            contentType: 'application/json',
-        //            method: 'POST',
-        //            data: JSON.stringify({ task: input.val(), priority: select.val() }),
-        //            success: function(jqXHR, textStatus) {
-        //                location.reload();
-        //            },
-        //            error: function(jqXHR, textStatus, errorThrown) {
-        //                alert(textStatus);
-        //            }
-        //        });
-        //    }
-        //});
+            if(input.val() != '')
+            {
+                $.ajax('/api/todolist/task?todolistid=' + that.data('todolist-id'),
+                {
+                    contentType: 'application/json',
+                    method: 'POST',
+                    data: JSON.stringify({ task: input.val(), priority: select.val() }),
+                    success: function(jqXHR, textStatus) {
+                        location.reload();
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        alert(textStatus);
+                    }
+                });
+            }
+        });
     });
-</script>*@
-}
+</script>
+}*@
