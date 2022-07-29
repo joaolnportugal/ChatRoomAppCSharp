@@ -19,9 +19,9 @@ namespace ChatRoomApp.Web.Controllers.API
 
         [Route("messages")]
         [HttpPost]
-        public void SendMessage([FromQuery] int userId, [FromBody] SendMessageDto data, [FromQuery] Color userColor )
+        public void SendMessage([FromQuery] int userId, [FromBody] SendMessageDto data )
         {
-            _chatRoomService.SendMessage(userId, data.Message, userColor);
+            _chatRoomService.SendMessage(userId, data.Message, data.UserColor);
         }
     }
 }
