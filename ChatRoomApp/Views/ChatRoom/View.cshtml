@@ -1,6 +1,6 @@
 ﻿@model ViewChatRoomAppViewModel
 <div>
-    <a href="@Url.Action("Index", "ChatRoom")" class="btn btn-outline-danger">
+    <a href="@Url.Action("Index", "View")" class="btn btn-outline-danger">
         <span class="fas fa-cancel pe-2"></span>logout
     </a>
 </div>
@@ -13,12 +13,10 @@
                 </div>
             </div>
             <div class="col-1 d-flex align-items-center" style="width: 106px;">
-                <a class="btn btn-outline-primary" href="@Url.Action("edit", "todolist", new { id = Model.Id })">
+                <a class="btn btn-outline-primary" href="@Url.Action("index", "View", new { id = Model.Id })">
                     <span class="fas fa-pencil"></span>
                 </a>
-                <a class="btn btn-outline-danger" href="@Url.Action("delete", "todolist", new { id = Model.Id })">
-                    <span class="fas fa-trash-can"></span>
-                </a>
+                
             </div>
         </div>
     </div>
@@ -49,8 +47,8 @@
         }
   </ul>*@
     <div class="input-group mt-3">
-        <input type="text" class="form-control" placeholder="Send Message" aria-label="Send Message" aria-describedby="button-send-message">
-        <button class="btn btn-primary" type="button" id="button-send-message" data-sendmessage-id="@Model.Id">Add</button>
+        <input type="text" class="form-control" placeholder="write your message here" aria-label="Send Message" aria-describedby="button-send-message">
+        <button class="btn btn-primary" type="submit" id="button-send-message" data-sendmessage-id="@Model.Id">Send</button>
     </div>
 </div>
 

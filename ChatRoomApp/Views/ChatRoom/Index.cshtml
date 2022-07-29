@@ -33,7 +33,7 @@
     </div>
      @foreach (var user in Model.UserList)
     {
-        <a href="@Url.Action("view", "user", new { id = user.Id})">
+        <a href="@Url.Action("View", "user", new { id = user.Id})">
             <div class="card row p-4 mb-3 @user.UserColor">
                 <div class="container row">
                     <div class="col-9">

@@ -43,7 +43,7 @@ namespace ChatRoomApp.Web.Controllers
             _chatRoomService.CreateUser(user);
 
 
-            return RedirectToAction("View");
+            return RedirectToAction("View", user);
         }
 
         public IActionResult View(int? id)
