@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jYxLwCQaB6wePQzZTkE3BbHq/auX3wA64DlphuRfC/R4lhkXAPTkwqWw1FKHGd5QpKEtiDdkmB+RZuK8SzV2hg==",
+  "dgSpecHash": "pd7u8GvstPjYxarRP7990nY9ucqo88aCup42Zb84NO3vMUuiDn7iQLyroxk39OlYGoKQxwPAR3zxLHkhFX6jQA==",
   "success": true,
-  "projectFilePath": "C:\\Code\\BlissAcademy\\ChatRoomApp\\ChatRoomApp.Data\\ChatRoomApp.Data.csproj",
+  "projectFilePath": "C:\\Code\\BlissAcademy\\ChatApp\\ChatRoomAppCSharp\\ChatRoomApp.Data\\ChatRoomApp.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\joaoportugal\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\joaoportugal\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

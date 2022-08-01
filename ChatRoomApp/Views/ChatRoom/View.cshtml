@@ -1,8 +1,19 @@
 ﻿@model ViewChatRoomAppViewModel
 <div>
-    <a href="@Url.Action("")" class="btn btn-outline-danger">
-        <span class="fas fa-cancel pe-2"></span>logout
-    </a>
+    @*<a href="@Url.Action("")" class="btn btn-outline-danger">*@
+        <span class="fas fa-cancel pe-2">logout</span>
+
+        <form asp-controller="chatroom" asp-action="logout" method="post" >
+            <button class="btn btn-primary" type="submit">Logout</button>
+            <div class="input-group mt-3">
+                <input type="hidden" asp-for="Id" class="form-control" value="@Model.Id" />
+                <input type="hidden" asp-for="isLoggedIn" class="form-control" value="@Model.isLoggedIn" />
+            </div>
+      </form>
+
+    @*</a>*@
+
+     
 </div>
 <div class="card">
     <div class="card-header">
@@ -46,10 +57,31 @@
             </li>
         }
   </ul>*@
-    <div class="input-group mt-3">
-        <input type="text" class="form-control" placeholder="write your message here" aria-label="Send Message" aria-describedby="button-send-message">
-        <button class="btn btn-primary" type="submit" id="button-send-message" data-sendmessage-id="@Model.Id">Send</button>
-    </div>
+    <form asp-controller="chatroom" asp-action="sendmessage" method="post">
+        <div class="input-group mt-3">
+            <input type="hidden" asp-for="Id" class="form-control" value="@Model.Id" />
+            <input type="hidden" asp-for="UserColor" class="form-control" value="@Model.UserColor" />
+            <input type="hidden" asp-for="UserName" class="form-control" value="@Model.UserName" />
+            <input type="text" asp-for="Message" class="form-control" placeholder="write your message here" aria-label="Send Message" aria-describedby="button-send-message">
+            <button class="btn btn-primary" type="submit">Send</button>
+        </div>
+    </form>
+</div>
+
+</div>
+     @foreach (var user in Model.Users)
+    {
+        <a href="@Url.Action("View", "user", new { id = user.Id})">
+            <div class="card row p-4 mb-3 @user.ColorCssClasses">
+                <div class="container row">
+                    <div class="col-9">
+                        <div class="fs-1">@user.Name</div>
+                    </div>
+                    
+                </div>
+            </div>
+        </a>
+    }
 </div>
 
 @*section Scripts {

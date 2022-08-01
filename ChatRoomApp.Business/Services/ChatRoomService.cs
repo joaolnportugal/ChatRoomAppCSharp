@@ -8,10 +8,14 @@ namespace ChatRoomApp.Business.Services
     public interface IChatRoomService
     {
         IEnumerable<User> GetUsers();
-        void CreateUser(User user);
+        IEnumerable<Messages> GetMessages();
+
+        void CreateOrEditUser(User user);
         User GetById (int id, bool trackEntity = false);
-        void LogOff (User user);
-        void SendMessage (int userId, string message, Color userColor);
+        User GetByName (string username, bool trackEntity = false);
+        void LogOut (int userId);
+        void SendMessage (int userId, string message, Color color, string userName);
+
         
     }
 
@@ -27,10 +31,32 @@ namespace ChatRoomApp.Business.Services
             _messagesRepo = messagesRepo;
         }
 
-        public void CreateUser(User user)
+        public void CreateOrEditUser(User user)
         {
-            _userRepo.Add(user);
+            //Fazer um get por username
+            var _user = GetByName(user.UserName, false);
+            
+            //If que verifica se existe
+            if (_user is not null)
+            {
+                _user.IsLoggedIn = true;
+            }
+            else 
+            {
+                _userRepo.Add(user);
+                
+            }
             _userRepo.Save();
+
+
+
+
+            //Se existir, edita para is logIn
+
+            //Se não existir cria de novo
+
+            //Se existir
+
         }
 
         public User GetById(int id, bool trackEntity)
@@ -43,37 +69,59 @@ namespace ChatRoomApp.Business.Services
             }
 
             return query
-                .Include(x => x.Messages)
                 .SingleOrDefault(x => x.Id == id);
         }
 
+        public User GetByName(string username, bool trackEntity)
+        {
+            var query = _userRepo.PrepareQuery();
+
+            if (!trackEntity)
+            {
+                query = query.AsNoTracking();
+            }
+
+            return query
+                .SingleOrDefault(x => x.UserName == username);
+        }
+
+        public IEnumerable<Messages> GetMessages() =>
+
+            _messagesRepo.PrepareQuery()
+                .AsNoTracking()
+                .Include(x => x.Message)
+                .ToList();
         public IEnumerable<User> GetUsers() =>
             _userRepo.PrepareQuery()
             .AsNoTracking()
             .Include(x => x.Messages)
             .ToList();
 
-        public void LogOff(User user)
+        public void LogOut(int userId)
         {
-            throw new NotImplementedException();
+            var user = _userRepo.Find(userId);
+            user.IsLoggedIn = false;
+            _userRepo.Save();
         }
 
-        public void SendMessage(int userId, string message, Color userColor)
+        public void SendMessage(Messages message)
         {
-            var user = _userRepo.PrepareQuery()
-                .Include(x => x.Messages)
-                .SingleOrDefault(x => x.Id == userId);
+            _messagesRepo.Add(message);
+            _messagesRepo.Save();
+        }
 
-            if (user is not null)
+        public void SendMessage(int userId, string message, Color color, string userName)
+        {
+            
+            var _message = new Messages()
             {
-                var _message = new Messages()
-                {
-                    UserColor = userColor,
-                    Message = message
-                };
-                user.Messages.Add(_message);
-                _userRepo.Save();
-            }
+                UserId = userId,
+                Message = message,
+                UserColor = (Color)color,
+               UserName = userName
+            };
+
+            SendMessage(_message);
         }
     }
 }

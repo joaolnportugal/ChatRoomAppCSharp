@@ -11,6 +11,7 @@ namespace ChatRoomApp.Web.Controllers
     {
         private IChatRoomService _chatRoomService;
         private int id;
+        
 
         public ChatRoomController(IChatRoomService chatRoomService)
         {
@@ -36,32 +37,59 @@ namespace ChatRoomApp.Web.Controllers
             }
 
             var user = new User()
+            
             {
                 UserName = model.Name,
-                UserColor = (Color)model.SelectedColor
+                UserColor = (Color)model.SelectedColor,
+                IsLoggedIn = true
             };
-            _chatRoomService.CreateUser(user);
-
+            _chatRoomService.CreateOrEditUser(user);
 
             return RedirectToAction("View", user);
         }
 
-        public IActionResult View(int? id)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult SendMessage([FromForm] ViewChatRoomAppViewModel model)
         {
-            if (id is null)
+            if (!ModelState.IsValid)
+            {
+                return View("View", model);
+            }
+
+            //VERIFICAR PORQUE O MODELO VEM INVÁLIDO
+
+            _chatRoomService.SendMessage(model.Id, model.Message, model.UserColor, model.UserName);
+
+            return View("View",model);
+        }
+
+        public IActionResult View(User user)
+        {
+            if (user.Id == null)
             {
                 return RedirectToAction("Index");
             }
 
-            var chatRoom
-                = _chatRoomService.GetById(id.Value);
-            if (chatRoom is null)
-            {
-                return RedirectToAction("Index");
-            }
+            //var chatRoom
+            //    = _chatRoomService.GetById(id.Value);
+            //if (chatRoom is null)
+            //{
+            //    return RedirectToAction("Index");
+            //}
 
-            var model = new ViewChatRoomAppViewModel(chatRoom);
+            var model = new ViewChatRoomAppViewModel(user);
+
             return View(model);
+        }
+
+       
+        public IActionResult LogOut([FromForm] ViewChatRoomAppViewModel model) //(int userId)
+        {
+            var user = _chatRoomService.GetById(model.Id, true);
+            _chatRoomService.LogOut(user.Id);
+
+            return RedirectToAction("Index");
         }
     }
 }

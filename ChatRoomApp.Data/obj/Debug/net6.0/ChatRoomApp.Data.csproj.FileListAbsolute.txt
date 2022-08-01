@@ -12,3 +12,17 @@ C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp.Data\obj\Debug\net6.0\refint\ChatRo
 C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp.Data\obj\Debug\net6.0\ChatRoomApp.Data.pdb
 C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp.Data\obj\Debug\net6.0\ChatRoomApp.Data.genruntimeconfig.cache
 C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp.Data\obj\Debug\net6.0\ref\ChatRoomApp.Data.dll
+C:\Code\BlissAcademy\ChatApp\ChatRoomAppCSharp\ChatRoomApp.Data\bin\Debug\net6.0\ChatRoomApp.Data.deps.json
+C:\Code\BlissAcademy\ChatApp\ChatRoomAppCSharp\ChatRoomApp.Data\bin\Debug\net6.0\ChatRoomApp.Data.runtimeconfig.json
+C:\Code\BlissAcademy\ChatApp\ChatRoomAppCSharp\ChatRoomApp.Data\bin\Debug\net6.0\ChatRoomApp.Data.dll
+C:\Code\BlissAcademy\ChatApp\ChatRoomAppCSharp\ChatRoomApp.Data\bin\Debug\net6.0\ChatRoomApp.Data.pdb
+C:\Code\BlissAcademy\ChatApp\ChatRoomAppCSharp\ChatRoomApp.Data\obj\Debug\net6.0\ChatRoomApp.Data.csproj.AssemblyReference.cache
+C:\Code\BlissAcademy\ChatApp\ChatRoomAppCSharp\ChatRoomApp.Data\obj\Debug\net6.0\ChatRoomApp.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Code\BlissAcademy\ChatApp\ChatRoomAppCSharp\ChatRoomApp.Data\obj\Debug\net6.0\ChatRoomApp.Data.AssemblyInfoInputs.cache
+C:\Code\BlissAcademy\ChatApp\ChatRoomAppCSharp\ChatRoomApp.Data\obj\Debug\net6.0\ChatRoomApp.Data.AssemblyInfo.cs
+C:\Code\BlissAcademy\ChatApp\ChatRoomAppCSharp\ChatRoomApp.Data\obj\Debug\net6.0\ChatRoomApp.Data.csproj.CoreCompileInputs.cache
+C:\Code\BlissAcademy\ChatApp\ChatRoomAppCSharp\ChatRoomApp.Data\obj\Debug\net6.0\ChatRoomApp.Data.dll
+C:\Code\BlissAcademy\ChatApp\ChatRoomAppCSharp\ChatRoomApp.Data\obj\Debug\net6.0\refint\ChatRoomApp.Data.dll
+C:\Code\BlissAcademy\ChatApp\ChatRoomAppCSharp\ChatRoomApp.Data\obj\Debug\net6.0\ChatRoomApp.Data.pdb
+C:\Code\BlissAcademy\ChatApp\ChatRoomAppCSharp\ChatRoomApp.Data\obj\Debug\net6.0\ChatRoomApp.Data.genruntimeconfig.cache
+C:\Code\BlissAcademy\ChatApp\ChatRoomAppCSharp\ChatRoomApp.Data\obj\Debug\net6.0\ref\ChatRoomApp.Data.dll

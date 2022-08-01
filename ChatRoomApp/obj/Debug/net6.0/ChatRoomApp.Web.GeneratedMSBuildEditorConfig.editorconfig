@@ -8,37 +8,37 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ChatRoomApp.Web
 build_property.RootNamespace = ChatRoomApp.Web
-build_property.ProjectDir = C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp\
+build_property.ProjectDir = C:\Code\BlissAcademy\ChatApp\ChatRoomAppCSharp\ChatRoomApp\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Code\BlissAcademy\ChatRoomApp\ChatRoomApp
+build_property.MSBuildProjectDirectory = C:\Code\BlissAcademy\ChatApp\ChatRoomAppCSharp\ChatRoomApp
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Code/BlissAcademy/ChatRoomApp/ChatRoomApp/Views/ChatRoom/Index.cshtml]
+[C:/Code/BlissAcademy/ChatApp/ChatRoomAppCSharp/ChatRoomApp/Views/ChatRoom/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFJvb21cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Code/BlissAcademy/ChatRoomApp/ChatRoomApp/Views/ChatRoom/View.cshtml]
+[C:/Code/BlissAcademy/ChatApp/ChatRoomAppCSharp/ChatRoomApp/Views/ChatRoom/View.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFJvb21cVmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Code/BlissAcademy/ChatRoomApp/ChatRoomApp/Views/Home/Index.cshtml]
+[C:/Code/BlissAcademy/ChatApp/ChatRoomAppCSharp/ChatRoomApp/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Code/BlissAcademy/ChatRoomApp/ChatRoomApp/Views/Shared/Error.cshtml]
+[C:/Code/BlissAcademy/ChatApp/ChatRoomAppCSharp/ChatRoomApp/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Code/BlissAcademy/ChatRoomApp/ChatRoomApp/Views/_ViewImports.cshtml]
+[C:/Code/BlissAcademy/ChatApp/ChatRoomAppCSharp/ChatRoomApp/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Code/BlissAcademy/ChatRoomApp/ChatRoomApp/Views/_ViewStart.cshtml]
+[C:/Code/BlissAcademy/ChatApp/ChatRoomAppCSharp/ChatRoomApp/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Code/BlissAcademy/ChatRoomApp/ChatRoomApp/Views/Shared/_Layout.cshtml]
+[C:/Code/BlissAcademy/ChatApp/ChatRoomAppCSharp/ChatRoomApp/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-m4uc9sdq1l

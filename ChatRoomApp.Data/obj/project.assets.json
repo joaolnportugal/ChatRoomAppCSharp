@@ -1872,11 +1872,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Code\\BlissAcademy\\ChatRoomApp\\ChatRoomApp.Data\\ChatRoomApp.Data.csproj",
+      "projectUniqueName": "C:\\Code\\BlissAcademy\\ChatApp\\ChatRoomAppCSharp\\ChatRoomApp.Data\\ChatRoomApp.Data.csproj",
       "projectName": "ChatRoomApp.Data",
-      "projectPath": "C:\\Code\\BlissAcademy\\ChatRoomApp\\ChatRoomApp.Data\\ChatRoomApp.Data.csproj",
+      "projectPath": "C:\\Code\\BlissAcademy\\ChatApp\\ChatRoomAppCSharp\\ChatRoomApp.Data\\ChatRoomApp.Data.csproj",
       "packagesPath": "C:\\Users\\joaoportugal\\.nuget\\packages\\",
-      "outputPath": "C:\\Code\\BlissAcademy\\ChatRoomApp\\ChatRoomApp.Data\\obj\\",
+      "outputPath": "C:\\Code\\BlissAcademy\\ChatApp\\ChatRoomAppCSharp\\ChatRoomApp.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

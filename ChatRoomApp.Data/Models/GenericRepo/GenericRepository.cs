@@ -14,9 +14,9 @@ namespace ChatRoomApp.Data.Models.GenericRepo
     {
         IQueryable<TEntity> PrepareQuery();
         TEntity Find(int id);
-
         void Add(TEntity entity);
         int Save();
+        
     }
 
     public class GenericRepository<TEntity> : IGenericRepository<TEntity>
@@ -45,5 +45,12 @@ namespace ChatRoomApp.Data.Models.GenericRepo
 
         public int Save()
             => _dbContext.SaveChanges();
+
+        
+        
+        
+           
+
+       
     }
 }

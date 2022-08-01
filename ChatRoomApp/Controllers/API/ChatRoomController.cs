@@ -17,11 +17,11 @@ namespace ChatRoomApp.Web.Controllers.API
             _chatRoomService = chatRoomService;
         }
 
-        [Route("messages")]
-        [HttpPost]
-        public void SendMessage([FromQuery] int userId, [FromBody] SendMessageDto data )
-        {
-            _chatRoomService.SendMessage(userId, data.Message, data.UserColor);
-        }
+        //[Route("messages")]
+        //[HttpPost]
+        //public void SendMessage([FromQuery] int userId, [FromBody] SendMessageDto data )
+        //{
+        //    _chatRoomService.SendMessage(userId, data.Message, data.UserColor);
+        //}
     }
 }

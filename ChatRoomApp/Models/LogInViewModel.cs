@@ -6,12 +6,17 @@ namespace ChatRoomApp.Web.Models
 {
     public record LogInViewModel
     {
-        [Display(Name = "Name", Prompt = "Todo list name")]
+        [Display(Name = "Name", Prompt = "Enter Username")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Please insert a valid Username")]
         public string? Name { get; set; }
         public List<User> UserList { get; set; } = new List<User>();
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Please insert a valid Username")]
         public int SelectedColor { get; set; }
         public List<UserColor> AvailableColors { get; set; }
+
+        public bool isLoggedIn { get; set; } = true;
+
 
         public LogInViewModel()
         {

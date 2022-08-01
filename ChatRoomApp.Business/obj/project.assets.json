@@ -1893,11 +1893,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Code\\BlissAcademy\\ChatRoomApp\\ChatRoomApp.Business\\ChatRoomApp.Business.csproj",
+      "projectUniqueName": "C:\\Code\\BlissAcademy\\ChatApp\\ChatRoomAppCSharp\\ChatRoomApp.Business\\ChatRoomApp.Business.csproj",
       "projectName": "ChatRoomApp.Business",
-      "projectPath": "C:\\Code\\BlissAcademy\\ChatRoomApp\\ChatRoomApp.Business\\ChatRoomApp.Business.csproj",
+      "projectPath": "C:\\Code\\BlissAcademy\\ChatApp\\ChatRoomAppCSharp\\ChatRoomApp.Business\\ChatRoomApp.Business.csproj",
       "packagesPath": "C:\\Users\\joaoportugal\\.nuget\\packages\\",
-      "outputPath": "C:\\Code\\BlissAcademy\\ChatRoomApp\\ChatRoomApp.Business\\obj\\",
+      "outputPath": "C:\\Code\\BlissAcademy\\ChatApp\\ChatRoomAppCSharp\\ChatRoomApp.Business\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1918,8 +1918,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Code\\BlissAcademy\\ChatRoomApp\\ChatRoomApp.Data\\ChatRoomApp.Data.csproj": {
-              "projectPath": "C:\\Code\\BlissAcademy\\ChatRoomApp\\ChatRoomApp.Data\\ChatRoomApp.Data.csproj"
+            "C:\\Code\\BlissAcademy\\ChatApp\\ChatRoomAppCSharp\\ChatRoomApp.Data\\ChatRoomApp.Data.csproj": {
+              "projectPath": "C:\\Code\\BlissAcademy\\ChatApp\\ChatRoomAppCSharp\\ChatRoomApp.Data\\ChatRoomApp.Data.csproj"
             }
           }
         }

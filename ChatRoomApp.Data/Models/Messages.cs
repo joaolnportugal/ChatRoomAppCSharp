@@ -13,8 +13,9 @@ namespace ChatRoomApp.Data.Models
     {
         public int UserId { get; set; }
         public Color UserColor { get; set; }
+        public string UserName { get; set; }
         public string Message { get; set; }
-        public User UserName { get; set; }
+        
     }
 
     public class TodoListTaskConfiguration : EntityBaseConfiguration<Messages>
@@ -34,9 +35,9 @@ namespace ChatRoomApp.Data.Models
                 .HasDefaultValue(false)
                 .IsRequired();
 
-            builder.HasOne(x => x.UserName)
-                .WithMany(x => x.Messages)
-                .HasForeignKey(x => x.UserId);
+            builder.Property(x => x.UserName)
+                .HasMaxLength(20)
+                .IsRequired();
 
             builder.Property(x => x.UserColor)
                 .HasMaxLength(150)
