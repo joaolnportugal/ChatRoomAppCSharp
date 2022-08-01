@@ -11,8 +11,11 @@ namespace ChatRoomApp.Web.Models
         public string? Name { get; set; }
         public List<User> UserList { get; set; } = new List<User>();
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Please insert a valid Username")]
+        [Required(ErrorMessage = "Please choose a color")]
         public int SelectedColor { get; set; }
+
+
+        [Required( ErrorMessage = "Please choose a color")]
         public List<UserColor> AvailableColors { get; set; }
 
         public bool isLoggedIn { get; set; } = true;
