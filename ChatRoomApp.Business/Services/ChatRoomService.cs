@@ -10,7 +10,7 @@ namespace ChatRoomApp.Business.Services
         IEnumerable<User> GetUsers();
         IEnumerable<Messages> GetMessages();
 
-        void CreateOrEditUser(User user);
+        User CreateOrEditUser(User user);
         User GetById (int id, bool trackEntity = false);
         User GetByName (string username, bool trackEntity = false);
         void LogOut (int userId);
@@ -31,7 +31,7 @@ namespace ChatRoomApp.Business.Services
             _messagesRepo = messagesRepo;
         }
 
-        public void CreateOrEditUser(User user)
+        public User CreateOrEditUser(User user)
         {
             //Fazer um get por username
             var _user = GetByName(user.UserName, false);
@@ -40,23 +40,20 @@ namespace ChatRoomApp.Business.Services
             if (_user is not null)
             {
                 _user.IsLoggedIn = true;
+
+                _userRepo.Save();
+
+                return _user;
             }
             else 
             {
                 _userRepo.Add(user);
-                
+                _userRepo.Save();
+
+                return user;
             }
-            _userRepo.Save();
-
-
-
-
-            //Se existir, edita para is logIn
-
-            //Se não existir cria de novo
-
-            //Se existir
-
+                
+            
         }
 
         public User GetById(int id, bool trackEntity)
@@ -80,7 +77,6 @@ namespace ChatRoomApp.Business.Services
             {
                 query = query.AsNoTracking();
             }
-
             return query
                 .SingleOrDefault(x => x.UserName == username);
         }
@@ -88,13 +84,13 @@ namespace ChatRoomApp.Business.Services
         public IEnumerable<Messages> GetMessages() =>
 
             _messagesRepo.PrepareQuery()
-                .AsNoTracking()
-                .Include(x => x.Message)
+                .AsNoTracking()                
                 .ToList();
         public IEnumerable<User> GetUsers() =>
             _userRepo.PrepareQuery()
+            .Where(x => x.IsLoggedIn == true)
             .AsNoTracking()
-            .Include(x => x.Messages)
+            //.Include(x => x.Messages)
             .ToList();
 
         public void LogOut(int userId)
@@ -118,7 +114,7 @@ namespace ChatRoomApp.Business.Services
                 UserId = userId,
                 Message = message,
                 UserColor = (Color)color,
-               UserName = userName
+                UserName = userName
             };
 
             SendMessage(_message);

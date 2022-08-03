@@ -57,28 +57,25 @@ namespace ChatRoomApp.Web.Controllers
                 return View("View", model);
             }
 
-            //VERIFICAR PORQUE O MODELO VEM INVÁLIDO
+            
 
-            _chatRoomService.SendMessage(model.Id, model.Message, model.UserColor, model.UserName);
+            _chatRoomService.SendMessage(model.messageId, model.Message, model.UserColor, model.UserName);
 
             return View("View",model);
         }
 
-        public IActionResult View(User user)
+        public IActionResult View(User user, Messages messages)
         {
             if (user.Id == null)
             {
                 return RedirectToAction("Index");
             }
 
-            //var chatRoom
-            //    = _chatRoomService.GetById(id.Value);
-            //if (chatRoom is null)
-            //{
-            //    return RedirectToAction("Index");
-            //}
+            
+            var userLists = _chatRoomService.GetUsers();
+            var messageLists = _chatRoomService.GetMessages();
 
-            var model = new ViewChatRoomAppViewModel(user);
+            var model = new ViewChatRoomAppViewModel(user, messages, userLists.ToList(), messageLists.ToList());
 
             return View(model);
         }
@@ -86,7 +83,8 @@ namespace ChatRoomApp.Web.Controllers
        
         public IActionResult LogOut([FromForm] ViewChatRoomAppViewModel model) //(int userId)
         {
-            var user = _chatRoomService.GetById(model.Id, true);
+            //User user = new User();
+            var user = _chatRoomService.GetById(model.userId, true);
             _chatRoomService.LogOut(user.Id);
 
             return RedirectToAction("Index");

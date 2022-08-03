@@ -22,13 +22,17 @@
                 <input type="radio" class="btn-check" asp-for="SelectedColor" id="@color.Name" value="@color.Id" autocomplete="off">
                 <label class="btn @color.CssClassName" for="@color.Name">@color.Name</label>
             }
+            <br />
+            <span asp-validation-for="SelectedColor" class="text-danger"></span>
         </div>
     </div>
 
     <button type="submit" class="btn btn-outline-primary">
-        <span class="fas fa-save pe-2"></span>Enter
+        <span class=""></span>Enter
     </button>
     </form>
+    </div>
+</div>
 
     
 
