@@ -29,7 +29,7 @@ namespace ChatRoomApp.Business.Services
         {
             _userRepo = userRepo;
             _messagesRepo = messagesRepo;
-        }
+       }
 
         public User CreateOrEditUser(User user)
         {
@@ -105,6 +105,13 @@ namespace ChatRoomApp.Business.Services
             _messagesRepo.Add(message);
             _messagesRepo.Save();
         }
+
+        //public void IsTyping(bool isTyping)
+        //{
+        //    User user = new User();
+        //    var typing = user.k
+        //}
+
 
         public void SendMessage(int userId, string message, Color color, string userName)
         {

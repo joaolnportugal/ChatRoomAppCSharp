@@ -11,8 +11,6 @@ namespace ChatRoomApp.Web.Models
         public int messageId { get; set; }
         public string UserName { get; set; } 
 
-        //public bool isTyping { get; set; }
-
         public bool isLoggedIn { get; set; }
 
         public Color UserColor { get; set; } 

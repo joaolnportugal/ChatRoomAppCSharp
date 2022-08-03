@@ -61,7 +61,7 @@ namespace ChatRoomApp.Web.Controllers
 
             _chatRoomService.SendMessage(model.messageId, model.Message, model.UserColor, model.UserName);
 
-            return View("View",model);
+            return RedirectToAction ("View",model); 
         }
 
         public IActionResult View(User user, Messages messages)

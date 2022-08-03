@@ -1,190 +1,98 @@
 ﻿@model ViewChatRoomAppViewModel
-<div>
-    @*<a href="@Url.Action("")" class="btn btn-outline-danger">*@
-        <span class="fas fa-cancel pe-2">logout</span>
 
-        <form asp-controller="chatroom" asp-action="logout" method="post" >
+<div>
+           <form asp-controller="chatroom" asp-action="logout" method="post" >
             <button class="btn btn-primary" type="submit">Logout</button>
             <div class="input-group mt-3">
                 <input type="hidden" asp-for="userId" class="form-control" value="@Model.userId" />
                 <input type="hidden" asp-for="isLoggedIn" class="form-control" value="@Model.isLoggedIn" />
             </div>
-      </form>
-
-    @*</a>*@
-
-     
-</div>
-<div class="card">
-    <div class="card-header">
-        <div class="row">
-            <div class="col @Model.ColorCssClasses">
-                <div class="fs-1">
-                    @Model.UserName
-                </div>
-            </div>
-            @*<div class="col-1 d-flex align-items-center" style="width: 106px;">
-                <a class="btn btn-outline-primary" href="@Url.Action("index", "View", new { id = Model.Id })">
-                    <span class="fas fa-pencil"></span>
-                </a>
-                
-            </div>*@
-        </div>
-    </div>
-    <ul class="list-group list-group-flush">
-       @* @foreach (var user in Model.Users)
-        {
+            </form>   
             
-            <li class="list-group-item">
-                <div class="row">
-                    
-                    <div class="col">
-                        <p style="background-color:@user.ColorCssClasses;">@user.Name</p>
-                        
-                    </div>
-                    <div class="col-1 d-flex align-items-center" style="width: 106px">
-                            <span class="fas fa-check"></span>                    
-                    </div>
-                </div>
-            </li>
-         
-        }*@
-  </ul>
- @*   <form asp-controller="Chatroom" asp-action="SendMessage" method="post">
-        <div class="input-group mt-3">
-            <input type="hidden" asp-for="Id" class="form-control" value="@Model.Id" />
-            <input type="hidden" asp-for="UserColor" class="form-control" value="@Model.UserColor" />
-            <input type="hidden" asp-for="UserName" class="form-control" value="@Model.UserName" />
-            <input type="text" asp-for="Message" class="form-control" placeholder="write your message here" aria-label="Send Message" aria-describedby="button-send-message">
-            <button class="btn btn-primary" type="submit"><span class=""></span>Send</button>
-
-        </div>
-    </form>*@
-    
-    <form asp-controller="chatroom" asp-action="sendmessage" method="post">
-    <div class="mb-3">
-            <label asp-for="Message" class="form-label"></label>
-            <input type="hidden" asp-for="messageId" class="form-control" value="@Model.messageId" />
-            <input type="hidden" asp-for="UserColor" class="form-control" value="@Model.UserColor" />
-            <input type="hidden" asp-for="ColorCssClasses" class="form-control" value="@Model.ColorCssClasses" />
-            <input type="hidden" asp-for="Messages" class="form-control" value="@Model.Messages" />
-            <input type="hidden" asp-for="Users" class="form-control" value="@Model.Users" />
-            <input type="hidden" asp-for="isLoggedIn" class="form-control" value="@Model.isLoggedIn" />
-            @*@*<input type="hidden" asp-for="isTyping" class="form-control" value="@Model.isTyping" />*@
-            <input type="hidden" asp-for="UserName" class="form-control" value="@Model.UserName" />
-            <input asp-for="Message" class="form-control" />
-            <span asp-validation-for="Message" class="text-danger"></span>
-        
-    </div>
-   @* <div class="mb-3">
-        <label class="form-label">Background Color</label>
-        <div class="form-control">
-            @foreach (var color in Model.AvailableColors)
-            {
-                <input type="radio" class="btn-check" asp-for="SelectedColor" id="@color.Name" value="@color.Id" autocomplete="off">
-                <label class="btn @color.CssClassName" for="@color.Name">@color.Name</label>
-            }
-            <br />
-            <span asp-validation-for="SelectedColor" class="text-danger"></span>
-        </div>
-    </div>*@
-
-    <button type="submit" class="btn btn-outline-primary">
-        <span class="">Send</span>
-    </button>
-    </form>
-
-
 </div>
 
-@foreach (var user in Model.Users)
-{
-            
-    <li class="list-group-item">
+    <div class="card">
+    <div class="card-header " @Model.ColorCssClasses>
         <div class="row">
-                    
             <div class="col">
-                <p class="@user.ColorCssClasses">@user.Name</p>
-                        
-            </div>
-            <div class="col-1 d-flex align-items-center" style="width: 106px">
-                                                
-            </div>
-        </div>
-    </li>
-         
-}
-     @*@foreach (var user in Model.Users)
-    {
-        <a href="@Url.Action("View", "user", new { id = user.Id})">
-            <div class="card row p-4 mb-3 @user.ColorCssClasses">
-                <div class="container row">
-                    <div class="col-9">
-                        <div class="fs-1">@user.Name</div>
-                    </div>
-                    
+                <div class="fs-1 ">
+                    @Model.UserName                    
                 </div>
             </div>
-        </a>
+           
+        </div>
+    </div>   
+      
+    <div>
+        @foreach (var message in Model.Messages)
+    {            
+        <li class="list-group-item">
+            <div class="row">
+                    
+                <div class="col">
+                    <p class="@message.ColorCssClasses ">@message.UserName : <br> @message.Message</p>
+                
+                        
+                </div>
+                <div class="col-1 d-flex align-items-center" style="width: 106px">
+                                                
+                </div>
+            </div>
+        </li>         
+}
+        <form asp-controller="chatroom" asp-action="sendmessage" method="post">
+        <div class="mb-3">
+                <label asp-for="Message" class="form-label"></label>
+                <input type="hidden" asp-for="messageId" class="form-control" value="@Model.messageId" />
+                <input type="hidden" asp-for="UserColor" class="form-control" value="@Model.UserColor" />
+                <input type="hidden" asp-for="ColorCssClasses" class="form-control" value="@Model.ColorCssClasses" />
+                <input type="hidden" asp-for="Messages" class="form-control" value="@Model.Messages" />
+                <input type="hidden" asp-for="Users" class="form-control" value="@Model.Users" />
+                <input type="hidden" asp-for="isLoggedIn" class="form-control" value="@Model.isLoggedIn" />
+                <input type="hidden" asp-for="UserName" class="form-control" value="@Model.UserName" />
+                <input asp-for="Message" class="form-control" />
+                <span asp-validation-for="Message" class="text-danger"></span>
+        
+        </div>
+
+            <button type="submit" class="btn btn-outline-primary">
+                <span class="">Send</span>
+            </button>
+        </form>
+    </div>
+    
+
+
+</div>
+<br />
+<br />
+
+    <div class="card" style="width:170px">
+        <div class="row">
+             <div class="col">
+        <div class="fs-1 ">
+            OnLine:                    
+        </div>
+        </div>
+        </div>
+   </div>
+
+    <div>
+@foreach (var user in Model.Users)
+    {
+        <div class="card" style="width:170px">
+        
+                                                
+               
+        <li class="list-group-item">
+        <div class="card">                                                      
+            <p class="@user.ColorCssClasses">@user.Name</p>                                                                                         
+        </div>
+        </li>
+         
+         </div>
     }
-</div>*@
+    </div>
+    
 
-@*section Scripts {
-<script>
-    $(function() {
-        var deleteSelector = '[data-action="deleteTask"]';
-        var doneSelector = '[data-action="toggleDone"]';
-        var addTaskSelector = "#button-add-task";
-
-        $(deleteSelector).click(function() {
-            var that = $(this);
-            $.ajax('/api/todolist/task/delete?todolistid=' + that.data('todolist-id') + '&taskid=' + that.data('task-id'),
-            {
-                method: 'POST',
-                success: function(jqXHR, textStatus) {
-                    location.reload();
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    alert(textStatus);
-                }
-            });
-        });
-
-        $(doneSelector).click(function() {
-            var that = $(this);
-            $.ajax('/api/todolist/task/complete?todolistid=' + that.data('todolist-id') + '&taskid=' + that.data('task-id'),
-            {
-                method: 'POST',
-                success: function(jqXHR, textStatus) {
-                    location.reload();
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    alert(textStatus);
-                }
-            });
-        });
-
-        $(addTaskSelector).click(function() {
-            var that = $(this);
-            var input = that.siblings("input");
-            var select = that.siblings("select");
-            
-            if(input.val() != '')
-            {
-                $.ajax('/api/todolist/task?todolistid=' + that.data('todolist-id'),
-                {
-                    contentType: 'application/json',
-                    method: 'POST',
-                    data: JSON.stringify({ task: input.val(), priority: select.val() }),
-                    success: function(jqXHR, textStatus) {
-                        location.reload();
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) {
-                        alert(textStatus);
-                    }
-                });
-            }
-        });
-    });
-</script>
-}*@
+   
