@@ -37,15 +37,16 @@ namespace ChatRoomApp.Web.Controllers
             }
 
             var user = new User()
+
             
             {
                 UserName = model.Name,
-                UserColor = (Color)model.SelectedColor,
-                IsLoggedIn = true
+                UserColor = (Color)model.SelectedColor,                
             };
-            _chatRoomService.CreateOrEditUser(user);
+            
+            var loginUser = _chatRoomService.CreateOrEditUser(user);
 
-            return RedirectToAction("View", user);
+            return RedirectToAction("View", loginUser);
         }
 
         [HttpPost]
@@ -83,8 +84,7 @@ namespace ChatRoomApp.Web.Controllers
        
         public IActionResult LogOut([FromForm] ViewChatRoomAppViewModel model) //(int userId)
         {
-            //User user = new User();
-            var user = _chatRoomService.GetById(model.userId, true);
+            var user = _chatRoomService.GetByName(model.UserName);
             _chatRoomService.LogOut(user.Id);
 
             return RedirectToAction("Index");

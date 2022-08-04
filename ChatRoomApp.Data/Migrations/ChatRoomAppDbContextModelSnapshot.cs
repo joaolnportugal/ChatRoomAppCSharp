@@ -61,8 +61,6 @@ namespace ChatRoomApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
-
                     b.ToTable("Messages", (string)null);
                 });
 
@@ -105,20 +103,6 @@ namespace ChatRoomApp.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("User", (string)null);
-                });
-
-            modelBuilder.Entity("ChatRoomApp.Data.Models.Messages", b =>
-                {
-                    b.HasOne("ChatRoomApp.Data.Models.User", null)
-                        .WithMany("Messages")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ChatRoomApp.Data.Models.User", b =>
-                {
-                    b.Navigation("Messages");
                 });
 #pragma warning restore 612, 618
         }

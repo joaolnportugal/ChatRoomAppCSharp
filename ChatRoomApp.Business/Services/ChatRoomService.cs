@@ -11,12 +11,16 @@ namespace ChatRoomApp.Business.Services
         IEnumerable<Messages> GetMessages();
 
         User CreateOrEditUser(User user);
-        User GetById (int id, bool trackEntity = false);
+        User GetById (int id);
         User GetByName (string username, bool trackEntity = false);
         void LogOut (int userId);
         void SendMessage (int userId, string message, Color color, string userName);
+        void IsTyping(int userId);
+        void IsNotTyping(int userId);
 
-        
+
+
+
     }
 
     public class ChatRoomService : IChatRoomService
@@ -29,22 +33,27 @@ namespace ChatRoomApp.Business.Services
         {
             _userRepo = userRepo;
             _messagesRepo = messagesRepo;
-       }
+        }
 
         public User CreateOrEditUser(User user)
         {
             //Fazer um get por username
             var _user = GetByName(user.UserName, false);
             
+            
             //If que verifica se existe
             if (_user is not null)
             {
                 _user.IsLoggedIn = true;
+                _user.UserColor = user.UserColor;
+                
+               
 
                 _userRepo.Save();
 
                 return _user;
             }
+           
             else 
             {
                 _userRepo.Add(user);
@@ -56,17 +65,9 @@ namespace ChatRoomApp.Business.Services
             
         }
 
-        public User GetById(int id, bool trackEntity)
+        public User GetById(int id)
         {
-            var query = _userRepo.PrepareQuery();
-
-            if (!trackEntity)
-            {
-                query = query.AsNoTracking();
-            }
-
-            return query
-                .SingleOrDefault(x => x.Id == id);
+            return _userRepo.Find(id);
         }
 
         public User GetByName(string username, bool trackEntity)
@@ -81,6 +82,8 @@ namespace ChatRoomApp.Business.Services
                 .SingleOrDefault(x => x.UserName == username);
         }
 
+      
+
         public IEnumerable<Messages> GetMessages() =>
 
             _messagesRepo.PrepareQuery()
@@ -90,7 +93,6 @@ namespace ChatRoomApp.Business.Services
             _userRepo.PrepareQuery()
             .Where(x => x.IsLoggedIn == true)
             .AsNoTracking()
-            //.Include(x => x.Messages)
             .ToList();
 
         public void LogOut(int userId)
@@ -106,11 +108,6 @@ namespace ChatRoomApp.Business.Services
             _messagesRepo.Save();
         }
 
-        //public void IsTyping(bool isTyping)
-        //{
-        //    User user = new User();
-        //    var typing = user.k
-        //}
 
 
         public void SendMessage(int userId, string message, Color color, string userName)
@@ -125,6 +122,20 @@ namespace ChatRoomApp.Business.Services
             };
 
             SendMessage(_message);
+        }
+
+        public void IsTyping(int userId)
+        {
+            var typing = _userRepo.Find(userId);
+            typing.IsTyping = true;
+            _userRepo.Save();
+        }
+
+        public void IsNotTyping(int userId)
+        {
+            var typing = _userRepo.Find(userId);
+            typing.IsTyping = false;
+            _userRepo.Save();
         }
     }
 }

@@ -15,7 +15,6 @@ namespace ChatRoomApp.Data.Models
         public string UserName { get; set; }
         [Required]
         public Color UserColor { get; set; }      
-        public ICollection<Messages> Messages { get; set; }
         public bool IsTyping { get; set; }
         public bool IsLoggedIn { get; set; } 
 

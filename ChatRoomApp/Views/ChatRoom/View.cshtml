@@ -3,26 +3,30 @@
 <div>
            <form asp-controller="chatroom" asp-action="logout" method="post" >
             <button class="btn btn-primary" type="submit">Logout</button>
-            <div class="input-group mt-3">
-                <input type="hidden" asp-for="userId" class="form-control" value="@Model.userId" />
-                <input type="hidden" asp-for="isLoggedIn" class="form-control" value="@Model.isLoggedIn" />
-            </div>
+                <div class="input-group mt-3">
+                    <input type="hidden" asp-for="userId" class="form-control" value="@Model.userId" />
+                    <input type="hidden" asp-for="isLoggedIn" class="form-control" value="@Model.isLoggedIn" />
+                    <input type="hidden" asp-for="messageId" class="form-control" value="@Model.messageId" />
+                    <input type="hidden" asp-for="UserColor" class="form-control" value="@Model.UserColor" />
+                    <input type="hidden" asp-for="ColorCssClasses" class="form-control" value="@Model.ColorCssClasses" />
+                    <input type="hidden" asp-for="Messages" class="form-control" value="@Model.Messages" />
+                    <input type="hidden" asp-for="Users" class="form-control" value="@Model.Users" />
+                    <input type="hidden" asp-for="UserName" class="form-control" value="@Model.UserName" />
+                </div>
             </form>   
             
 </div>
 
     <div class="card">
-    <div class="card-header " @Model.ColorCssClasses>
-        <div class="row">
-            <div class="col">
-                <div class="fs-1 ">
-                    @Model.UserName                    
-                </div>
+        <div class="card-header " @Model.ColorCssClasses>
+            <div class="row">
+                <div class="col">
+                    <div class="fs-1 ">
+                        @Model.UserName                    
+                    </div>
+                </div>           
             </div>
-           
-        </div>
-    </div>   
-      
+        </div>        
     <div>
         @foreach (var message in Model.Messages)
     {            
@@ -54,26 +58,23 @@
                 <span asp-validation-for="Message" class="text-danger"></span>
         
         </div>
-
             <button type="submit" class="btn btn-outline-primary">
                 <span class="">Send</span>
             </button>
         </form>
-    </div>
-    
-
-
+    </div>    
 </div>
+
 <br />
 <br />
 
     <div class="card" style="width:170px">
         <div class="row">
-             <div class="col">
-        <div class="fs-1 ">
-            OnLine:                    
-        </div>
-        </div>
+            <div class="col">
+                <div class="fs-1 ">
+                    OnLine:                    
+                </div>
+            </div>
         </div>
    </div>
 
@@ -81,18 +82,14 @@
 @foreach (var user in Model.Users)
     {
         <div class="card" style="width:170px">
-        
-                                                
-               
-        <li class="list-group-item">
-        <div class="card">                                                      
-            <p class="@user.ColorCssClasses">@user.Name</p>                                                                                         
-        </div>
-        </li>
-         
+            <li class="list-group-item">
+                <div class="card">                                                      
+                    <p class="@user.ColorCssClasses">@user.Name</p>                                                                                         
+                </div>
+            </li>    
          </div>
     }
     </div>
     
 
-   
+  
