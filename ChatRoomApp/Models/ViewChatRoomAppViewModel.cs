@@ -15,8 +15,9 @@ namespace ChatRoomApp.Web.Models
 
         public Color UserColor { get; set; } 
         public string ColorCssClasses { get; set; }
+
         [MaxLength(150)]
-        public string Message { get; set; } 
+        public string Message { get; set; } = string.Empty;
         public List<MessageInfo> Messages { get; set; } = new List<MessageInfo>();
         public List<UserInfo> Users { get; set; } = new List<UserInfo>();
 
@@ -25,14 +26,14 @@ namespace ChatRoomApp.Web.Models
             
         }
 
-        public ViewChatRoomAppViewModel(User user, Messages messages, List<User> userList, List<Messages> messageList)
+        public ViewChatRoomAppViewModel(User user, List<User> userList, List<Messages> messageList)
         {
             userId = user.Id;
-            UserName = user.UserName = messages.UserName;
-            UserColor = user.UserColor = messages.UserColor;
+            UserName = user.UserName; // = messages.UserName;
+            UserColor = user.UserColor; // = messages.UserColor;
             ColorCssClasses = UserColor.ToString();
-            Message = messages.Message;
-            messageId = messages.Id;
+            //Message = messages.Message;
+            //messageId = messages.Id;
             isLoggedIn = user.IsLoggedIn;            
             //isTyping = user.IsTyping;
             Users = userList.Select(t => new UserInfo(t)).ToList();

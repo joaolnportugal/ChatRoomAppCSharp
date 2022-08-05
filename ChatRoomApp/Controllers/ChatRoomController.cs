@@ -65,20 +65,25 @@ namespace ChatRoomApp.Web.Controllers
             return RedirectToAction ("View",model); 
         }
 
-        public IActionResult View(User user, Messages messages)
+        public IActionResult View(User user) //, Messages messages)
         {
             if (user.Id == null)
             {
                 return RedirectToAction("Index");
             }
-
+            //if (user.IsLoggedIn = true)
+            //{
+            //}
+                var userLists = _chatRoomService.GetUsers();
             
-            var userLists = _chatRoomService.GetUsers();
-            var messageLists = _chatRoomService.GetMessages();
+                var messageLists = _chatRoomService.GetMessages();
+            
+                var model = new ViewChatRoomAppViewModel(user, userLists.ToList(), messageLists.ToList());
 
-            var model = new ViewChatRoomAppViewModel(user, messages, userLists.ToList(), messageLists.ToList());
-
-            return View(model);
+                return View(model);
+           
+            
+          
         }
 
        

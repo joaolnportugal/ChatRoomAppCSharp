@@ -38,7 +38,7 @@ namespace ChatRoomApp.Business.Services
         public User CreateOrEditUser(User user)
         {
             //Fazer um get por username
-            var _user = GetByName(user.UserName, false);
+            var _user = GetByName(user.UserName, true);
             
             
             //If que verifica se existe
