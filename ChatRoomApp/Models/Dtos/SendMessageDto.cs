@@ -8,5 +8,6 @@ namespace ChatRoomApp.Web.Models.Dtos
     {
         public string Message { get; set; }
         public Color UserColor { get; set; }
+        public string UserName { get; set; }
     }
 }

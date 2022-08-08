@@ -128,3 +128,8 @@ C:\Code\BlissAcademy\ChatApp\ChatRoomAppCSharp\ChatRoomApp\obj\Debug\net6.0\refi
 C:\Code\BlissAcademy\ChatApp\ChatRoomAppCSharp\ChatRoomApp\obj\Debug\net6.0\ChatRoomApp.Web.pdb
 C:\Code\BlissAcademy\ChatApp\ChatRoomAppCSharp\ChatRoomApp\obj\Debug\net6.0\ChatRoomApp.Web.genruntimeconfig.cache
 C:\Code\BlissAcademy\ChatApp\ChatRoomAppCSharp\ChatRoomApp\obj\Debug\net6.0\ref\ChatRoomApp.Web.dll
+C:\Code\BlissAcademy\ChatApp\ChatRoomAppCSharp\ChatRoomApp\bin\Debug\net6.0\AutoMapper.dll
+C:\Code\BlissAcademy\ChatApp\ChatRoomAppCSharp\ChatRoomApp\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Code\BlissAcademy\ChatApp\ChatRoomAppCSharp\ChatRoomApp\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Code\BlissAcademy\ChatApp\ChatRoomAppCSharp\ChatRoomApp\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Code\BlissAcademy\ChatApp\ChatRoomAppCSharp\ChatRoomApp\bin\Debug\net6.0\Newtonsoft.Json.dll

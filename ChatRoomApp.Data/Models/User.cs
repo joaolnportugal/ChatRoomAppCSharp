@@ -14,8 +14,8 @@ namespace ChatRoomApp.Data.Models
     {
         public string UserName { get; set; }
         [Required]
-        public Color UserColor { get; set; }      
-        public bool IsTyping { get; set; }
+        public Color UserColor { get; set; }
+        public bool IsTyping { get; set; } = false;
         public bool IsLoggedIn { get; set; } 
 
 
@@ -42,6 +42,9 @@ namespace ChatRoomApp.Data.Models
                 .HasDefaultValue(true)
                 .IsRequired();
             
+            builder.Property(x => x.IsTyping)
+                .HasDefaultValue(true)
+                .IsRequired();
         }
     }
 }

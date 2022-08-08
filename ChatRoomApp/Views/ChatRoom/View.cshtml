@@ -1,5 +1,9 @@
 ﻿@model ViewChatRoomAppViewModel
 
+@{
+    int color = (int)Model.UserColor;
+}
+
 <div>
            <form asp-controller="chatroom" asp-action="logout" method="post" >
             <button class="btn btn-primary" type="submit">Logout</button>
@@ -28,6 +32,9 @@
             </div>
         </div>        
     <div>
+
+@*       // fazer refresh a este troço com a partial
+
         @foreach (var message in Model.Messages)
     {            
         <li class="list-group-item">
@@ -44,8 +51,13 @@
             </div>
         </li>         
 }
+*@
+
+<div id="messageListPartial">@await Html.PartialAsync("Partials/Partial.cshtml")</div>
+
 
         <!--Form-->
+
 @*        <form asp-controller="chatroom" asp-action="sendmessage" method="post">
         <div class="mb-3">
                 <label asp-for="Message" class="form-label"></label>
@@ -64,10 +76,56 @@
             </button>
         </form>*@
 
-        <!--Javascript-->
+        <div class="input-group mt-3">
+            <input  type="text" class="form-control" placeholder="Send Message" aria-label="Send Message" aria-describedby="button-send-message">
+            <button class="btn btn-primary" type="button" id="button-send-message" data-user-id="@Model.userId" data-user-name="@Model.UserName" data-colorcssclasses="@Model.ColorCssClasses" data-ng-messages="@Model.Messages"data-messages-id="@Model.messageId">Send</button>
+        </div>
 
-    </div>    
+
+      
+    </div>   
 </div>
+
+@section Scripts {
+<script>
+    $(function() {
+        
+        var sendMessageSelector = "#button-send-message";
+
+      
+
+        $(sendMessageSelector).click(function() {
+            var that = $(this);
+            var input = that.siblings("input");
+            var select = that.siblings("select");
+            
+            if (input.val() != '') {
+                $.ajax('/api/chatroom/messages?userid=' + that.data('user-id'),
+                {
+                    contentType: 'application/json',
+                    method: 'POST',
+                    data: JSON.stringify({ Message: input.val(), UserColor: @color, UserName: that.data('user-name') }),
+                    success: function(jqXHR, textStatus) {
+                        location.reload();
+                        //setInterval(function() {
+                        //    var isTyping = false;
+                        //    if (input.val() !== '') {
+                        //        isTyping = true;
+                        //    }
+                        //    $("#messageListPartial").load();
+                        //}1000);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        alert(textStatus);
+                    }
+                });
+            }
+        });
+
+    });
+</script>
+                }
+
 
 <br />
 <br />

@@ -8,7 +8,7 @@ namespace ChatRoomApp.Web.Controllers.API
 
     [Route("api/[controller]")]
     [ApiController]
-    public class ChatRoomController : ControllerBase
+    public class ChatRoomController : Controller
     {
         private readonly IChatRoomService _chatRoomService;
 
@@ -17,11 +17,33 @@ namespace ChatRoomApp.Web.Controllers.API
             _chatRoomService = chatRoomService;
         }
 
-        //[Route("messages")]
-        //[HttpPost]
-        //public void SendMessage([FromQuery] int userId, [FromBody] SendMessageDto data )
-        //{
-        //    _chatRoomService.SendMessage(userId, data.Message, data.UserColor);
-        //}
+        [Route("messages")]
+        [HttpPost]
+        public void SendMessage([FromQuery] int userid, [FromBody] SendMessageDto data)
+        {
+            _chatRoomService.SendMessage(userid, data.Message, data.UserColor, data.UserName);
+            
+        }
+        // fazer metodo novo que me vai buscar as mensagens todas s´o [route] depois meto o path deste método e depois dá return da partial
+
+        [Route("getPartialMessages")]       
+        public IActionResult GetMessages(int userId, bool isTyping)
+        {
+            if ( isTyping == true)
+            {
+                _chatRoomService.IsTyping(userId);
+            }
+            if (isTyping == false)
+            {
+                _chatRoomService.IsNotTyping(userId);
+            }
+
+            var user = _chatRoomService.GetById(userId);
+            var messages = _chatRoomService.GetMessages();
+
+
+
+            return PartialView("Partials/Partial", messages);
+        }
     }
 }

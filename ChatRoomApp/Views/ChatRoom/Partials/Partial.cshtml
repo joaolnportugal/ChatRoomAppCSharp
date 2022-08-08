@@ -1,0 +1,27 @@
+﻿@model ViewChatRoomAppViewModel
+
+
+        <!--Javascript-->
+
+<div id="messageListPartial">
+@foreach (var message in Model.Messages)
+    {            
+        <li class="list-group-item">
+            <div class="row">
+                    
+                <div class="col">
+                    <p class="@message.ColorCssClasses ">@message.UserName : <br> @message.Message @message.Created</p>                                        
+                </div>
+                <div class="col-1 d-flex align-items-center" style="width: 106px">
+
+                </div>
+            </div>
+        </li>         
+    }
+    <div id"isTyping">
+    @if( @Model.UserInfo.isTyping == true)
+        {
+            <p> @Model.UserInfo.Name Is Typing...</p>
+        }
+    </div>
+</div>

@@ -21,6 +21,9 @@ namespace ChatRoomApp.Web.Models
         public List<MessageInfo> Messages { get; set; } = new List<MessageInfo>();
         public List<UserInfo> Users { get; set; } = new List<UserInfo>();
 
+        public UserInfo UserInfo { get; set; } = new UserInfo();
+
+
         public ViewChatRoomAppViewModel()
         {
             
@@ -29,13 +32,10 @@ namespace ChatRoomApp.Web.Models
         public ViewChatRoomAppViewModel(User user, List<User> userList, List<Messages> messageList)
         {
             userId = user.Id;
-            UserName = user.UserName; // = messages.UserName;
-            UserColor = user.UserColor; // = messages.UserColor;
+            UserName = user.UserName; 
+            UserColor = user.UserColor; 
             ColorCssClasses = UserColor.ToString();
-            //Message = messages.Message;
-            //messageId = messages.Id;
             isLoggedIn = user.IsLoggedIn;            
-            //isTyping = user.IsTyping;
             Users = userList.Select(t => new UserInfo(t)).ToList();
             Messages = messageList.Select(t => new MessageInfo(t)).ToList();
         }
@@ -60,10 +60,12 @@ namespace ChatRoomApp.Web.Models
             Name = user.UserName;
             ColorCssClasses = user.UserColor.GetCssClasses();
             isTyping = user.IsTyping;
-            //Messages = user.Messages;
             isLoggedIn = user.IsLoggedIn;
         }
 
+        public UserInfo()
+        {
+        }
     }
 
     public class MessageInfo
@@ -72,6 +74,7 @@ namespace ChatRoomApp.Web.Models
         public string Message { get; set; }
         public string UserName { get; set; }
         public string ColorCssClasses { get; set; }
+        public DateTimeOffset Created { get; set; }
 
 
         public MessageInfo(Messages messages)
@@ -80,6 +83,7 @@ namespace ChatRoomApp.Web.Models
             Message = messages.Message;
             UserName = messages.UserName;
             ColorCssClasses = messages.UserColor.GetCssClasses();
+            Created = DateTimeOffset.Now;
         }
     }
 }

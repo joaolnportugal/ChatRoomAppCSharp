@@ -18,9 +18,6 @@ namespace ChatRoomApp.Business.Services
         void IsTyping(int userId);
         void IsNotTyping(int userId);
 
-
-
-
     }
 
     public class ChatRoomService : IChatRoomService
@@ -47,22 +44,17 @@ namespace ChatRoomApp.Business.Services
                 _user.IsLoggedIn = true;
                 _user.UserColor = user.UserColor;
                 
-               
-
+                              
                 _userRepo.Save();
-
                 return _user;
-            }
-           
+            }           
             else 
             {
                 _userRepo.Add(user);
                 _userRepo.Save();
 
                 return user;
-            }
-                
-            
+            }                           
         }
 
         public User GetById(int id)
@@ -81,9 +73,7 @@ namespace ChatRoomApp.Business.Services
             return query
                 .SingleOrDefault(x => x.UserName == username);
         }
-
-      
-
+     
         public IEnumerable<Messages> GetMessages() =>
 
             _messagesRepo.PrepareQuery()
@@ -107,8 +97,6 @@ namespace ChatRoomApp.Business.Services
             _messagesRepo.Add(message);
             _messagesRepo.Save();
         }
-
-
 
         public void SendMessage(int userId, string message, Color color, string userName)
         {

@@ -49,21 +49,21 @@ namespace ChatRoomApp.Web.Controllers
             return RedirectToAction("View", loginUser);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult SendMessage([FromForm] ViewChatRoomAppViewModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View("View", model);
-            }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public IActionResult SendMessage([FromForm] ViewChatRoomAppViewModel model)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return View("View", model);
+        //    }
 
             
 
-            _chatRoomService.SendMessage(model.messageId, model.Message, model.UserColor, model.UserName);
+        //    _chatRoomService.SendMessage(model.messageId, model.Message, model.UserColor, model.UserName);
 
-            return RedirectToAction ("View",model); 
-        }
+        //    return RedirectToAction ("View",model); 
+        //}
 
         public IActionResult View(User user) //, Messages messages)
         {
