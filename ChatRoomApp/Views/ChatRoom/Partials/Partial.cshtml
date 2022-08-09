@@ -1,4 +1,6 @@
-﻿@model ViewChatRoomAppViewModel
+﻿@using ChatRoomApp.Web.Models.Dtos
+
+@model PartialMessageViewModel
 
 
         <!--Javascript-->
@@ -18,10 +20,11 @@
             </div>
         </li>         
     }
-    <div id"isTyping">
+
+   @* <div id"isTyping">
     @if( @Model.UserInfo.isTyping == true)
         {
             <p> @Model.UserInfo.Name Is Typing...</p>
         }
-    </div>
+    </div>*@
 </div>

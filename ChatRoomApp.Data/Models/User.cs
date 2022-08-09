@@ -22,7 +22,7 @@ namespace ChatRoomApp.Data.Models
     }
 
 
-    public class TodoListConfiguration : EntityBaseConfiguration<User>
+    public class ChatRoomConfiguration : EntityBaseConfiguration<User>
     {
         public override void Configure(EntityTypeBuilder<User> builder)
         {
@@ -43,7 +43,7 @@ namespace ChatRoomApp.Data.Models
                 .IsRequired();
             
             builder.Property(x => x.IsTyping)
-                .HasDefaultValue(true)
+                .HasDefaultValue()
                 .IsRequired();
         }
     }

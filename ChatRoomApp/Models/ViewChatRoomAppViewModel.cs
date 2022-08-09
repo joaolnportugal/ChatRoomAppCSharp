@@ -12,6 +12,7 @@ namespace ChatRoomApp.Web.Models
         public string UserName { get; set; } 
 
         public bool isLoggedIn { get; set; }
+        public bool isTyping { get; set; }
 
         public Color UserColor { get; set; } 
         public string ColorCssClasses { get; set; }
@@ -22,11 +23,17 @@ namespace ChatRoomApp.Web.Models
         public List<UserInfo> Users { get; set; } = new List<UserInfo>();
 
         public UserInfo UserInfo { get; set; } = new UserInfo();
+        IEnumerable<Messages> MessageList { get; set; } = new List<Messages>();
 
+        public PartialMessageViewModel MessageModel { get; set; }
 
         public ViewChatRoomAppViewModel()
         {
             
+        }
+        public ViewChatRoomAppViewModel(User user, IEnumerable<Messages> MessageList)
+        {
+
         }
 
         public ViewChatRoomAppViewModel(User user, List<User> userList, List<Messages> messageList)
@@ -38,6 +45,9 @@ namespace ChatRoomApp.Web.Models
             isLoggedIn = user.IsLoggedIn;            
             Users = userList.Select(t => new UserInfo(t)).ToList();
             Messages = messageList.Select(t => new MessageInfo(t)).ToList();
+            isTyping = user.IsTyping;
+
+            MessageModel = new PartialMessageViewModel(messageList);
         }
 
 
@@ -83,7 +93,7 @@ namespace ChatRoomApp.Web.Models
             Message = messages.Message;
             UserName = messages.UserName;
             ColorCssClasses = messages.UserColor.GetCssClasses();
-            Created = DateTimeOffset.Now;
+            Created = messages.Updated;
         }
     }
 }

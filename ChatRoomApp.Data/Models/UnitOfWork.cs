@@ -20,7 +20,7 @@ namespace ChatRoomApp.Data.Models
         }
 
 
-        public IGenericRepository<User> TodoListRepo
+        public IGenericRepository<User> UsersRepo
         {
             get
             {

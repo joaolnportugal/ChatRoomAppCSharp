@@ -114,6 +114,7 @@ namespace ChatRoomApp.Business.Services
 
         public void IsTyping(int userId)
         {
+            
             var typing = _userRepo.Find(userId);
             typing.IsTyping = true;
             _userRepo.Save();
@@ -125,5 +126,7 @@ namespace ChatRoomApp.Business.Services
             typing.IsTyping = false;
             _userRepo.Save();
         }
+
+       
     }
 }

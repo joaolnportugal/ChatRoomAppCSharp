@@ -1,5 +1,6 @@
 ﻿using ChatRoomApp.Business.Services;
 using ChatRoomApp.Data.Models.Shared;
+using ChatRoomApp.Web.Models;
 using ChatRoomApp.Web.Models.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,29 +22,31 @@ namespace ChatRoomApp.Web.Controllers.API
         [HttpPost]
         public void SendMessage([FromQuery] int userid, [FromBody] SendMessageDto data)
         {
-            _chatRoomService.SendMessage(userid, data.Message, data.UserColor, data.UserName);
-            
+            _chatRoomService.SendMessage(userid, data.Message, data.UserColor, data.UserName);            
         }
         // fazer metodo novo que me vai buscar as mensagens todas s´o [route] depois meto o path deste método e depois dá return da partial
 
         [Route("getPartialMessages")]       
-        public IActionResult GetMessages(int userId, bool isTyping)
+        public IActionResult GetPartialMessages(int userId)
         {
-            if ( isTyping == true)
-            {
-                _chatRoomService.IsTyping(userId);
-            }
-            if (isTyping == false)
-            {
-                _chatRoomService.IsNotTyping(userId);
-            }
-
-            var user = _chatRoomService.GetById(userId);
-            var messages = _chatRoomService.GetMessages();
+            //if ( isTyping == true)
+            //{
+            //    _chatRoomService.IsTyping(userId);
+            //}
+            //if (isTyping == false)
+            //{
+            //    _chatRoomService.IsNotTyping(userId);
+            //}
 
 
+            var messageLists = _chatRoomService.GetMessages();
+            var userinfo = _chatRoomService.GetById(userId);
+            //var partialDto = new PartialMessageDto(null, messageLists, userinfo);
+            var viewModel = new PartialMessageViewModel(messageLists);
 
-            return PartialView("Partials/Partial", messages);
+
+            //tem que retornar a rout e o modelo!
+            return PartialView("Partials/Partial", viewModel);
         }
     }
 }

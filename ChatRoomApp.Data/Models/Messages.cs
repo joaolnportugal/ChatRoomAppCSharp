@@ -18,7 +18,7 @@ namespace ChatRoomApp.Data.Models
         
     }
 
-    public class TodoListTaskConfiguration : EntityBaseConfiguration<Messages>
+    public class ChatRoomMessageConfiguration : EntityBaseConfiguration<Messages>
     {
         public override void Configure(EntityTypeBuilder<Messages> builder)
         {

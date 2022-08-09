@@ -71,9 +71,7 @@ namespace ChatRoomApp.Web.Controllers
             {
                 return RedirectToAction("Index");
             }
-            //if (user.IsLoggedIn = true)
-            //{
-            //}
+           
                 var userLists = _chatRoomService.GetUsers();
             
                 var messageLists = _chatRoomService.GetMessages();
