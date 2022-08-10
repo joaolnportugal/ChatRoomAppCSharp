@@ -85,7 +85,7 @@ namespace ChatRoomApp.Data.Migrations
                     b.Property<bool>("IsTyping")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
-                        .HasDefaultValue(true);
+                        .HasDefaultValue(false);
 
                     b.Property<DateTimeOffset>("Updated")
                         .ValueGeneratedOnAdd()

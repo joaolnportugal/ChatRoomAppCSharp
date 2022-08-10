@@ -38,10 +38,11 @@ namespace ChatRoomApp.Web.Controllers
 
             var user = new User()
 
-            
+
             {
                 UserName = model.Name,
-                UserColor = (Color)model.SelectedColor,                
+                UserColor = (Color)model.SelectedColor,
+                
             };
             
             var loginUser = _chatRoomService.CreateOrEditUser(user);

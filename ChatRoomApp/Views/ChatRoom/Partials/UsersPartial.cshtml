@@ -1,0 +1,29 @@
+﻿@model PartialUsersViewModel
+
+
+
+
+<div id="userPartial">
+
+      
+                    
+
+@foreach (var user in Model.Users)
+    {
+        <div class="card" style="width:170px">
+            <li class="list-group-item">
+                <div class="card">  
+                    @if ( user.isTyping == true)
+                    {
+                        <p class="@user.ColorCssClasses">@user.Name is typing...</p>
+                    }
+                    else
+                    {
+                        <p class="@user.ColorCssClasses">@user.Name </p> 
+                    }
+                                                                                                                                            
+               </div>
+            </li>    
+         </div>
+    }
+</div>

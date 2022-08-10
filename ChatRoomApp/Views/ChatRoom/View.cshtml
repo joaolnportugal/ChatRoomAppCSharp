@@ -3,6 +3,7 @@
 @{
     int color = (int)Model.UserColor;
     int userId = Model.userId;
+    bool isTyping = Model.isTyping;
 }
 
 <div>
@@ -17,6 +18,7 @@
                     <input type="hidden" asp-for="Messages" class="form-control" value="@Model.Messages" />
                     <input type="hidden" asp-for="Users" class="form-control" value="@Model.Users" />
                     <input type="hidden" asp-for="UserName" class="form-control" value="@Model.UserName" />
+                    <input type="hidden" asp-for="isTyping" class="form-control" value="@Model.isTyping" />
                 </div>
             </form>   
             
@@ -78,7 +80,7 @@
         </form>*@
 
         <div class="input-group mt-3">
-            <input  type="text" class="form-control" placeholder="Send Message" aria-label="Send Message" aria-describedby="button-send-message">
+            <input  type="text" oninput="displayIsTyping()" id="type-message" class="form-control" placeholder="Send Message" aria-label="Send Message" aria-describedby="button-send-message">
             <button class="btn btn-primary" type="button" id="button-send-message" data-user-id="@Model.userId" data-user-name="@Model.UserName" data-colorcssclasses="@Model.ColorCssClasses" data-ng-messages="@Model.Messages"data-messages-id="@Model.messageId">Send</button>
         </div>
 
@@ -97,7 +99,7 @@
             var that = $(this);
             var input = that.siblings("input");
             var select = that.siblings("select");
-            //var isTyping = false;
+            
             if (input.val() != '') {
 
                 $.ajax('/api/chatroom/messages?userid=' + that.data('user-id'),
@@ -106,14 +108,7 @@
                     method: 'POST',
                     data: JSON.stringify({ Message: input.val(), UserColor: @color, UserName: that.data('user-name') }),
                     success: function(jqXHR, textStatus) {
-                        //location.reload();
-                        //setInterval(function() {
-                        //    var isTyping = false;
-                        //    if (input.val() !== '') {
-                        //        isTyping = true;
-                        //    }
-                        //    $("#messageListPartial").load();
-                        //}1000);
+
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
                         alert(textStatus);
@@ -123,17 +118,31 @@
         });
 
         setInterval(function() {
-            //var input = $('#button-send-message')
-            //var isTyping = false;
-            //if (input.val() !== '') {
-            //    isTyping = true;
-            //}
+          
             $("#messageListPartial").load('/api/chatRoom/getPartialMessages?userid=' + @userId);
         }, 1000);
     });
 </script>
 
+ <script>
 
+    function displayIsTyping() { 
+            
+        //$("#type-message").change(function() {
+       
+     setInterval(function() {
+            var x = document.getElementById("type-message").value;
+            @isTyping = false;
+            if (x !== '') {
+                @isTyping = true;
+            }
+            $("#userPartial").load('/api/ChatRoom/getPartialUsers?userid=' + @userId +'&isTyping=' + @isTyping);
+
+        }, 1000);
+
+    };
+
+   </script>
 
 }
 
@@ -151,19 +160,8 @@
    </div>
 
 
-   //O isTyping VAI AQUI DENTRO, provavelmente tenho que fazer outra partial para isto
-    <div>
-@foreach (var user in Model.Users)
-    {
-        <div class="card" style="width:170px">
-            <li class="list-group-item">
-                <div class="card">                                                      
-                    <p class="@user.ColorCssClasses">@user.Name</p>                                                                                         
-                </div>
-            </li>    
-         </div>
-    }
-    </div>
-    
+<div id="userPartial">@await Html.PartialAsync("Partials/UsersPartial.cshtml", @Model.UserModel)</div>
+   
+   
 
   

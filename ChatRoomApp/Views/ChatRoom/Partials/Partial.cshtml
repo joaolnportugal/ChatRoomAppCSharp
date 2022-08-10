@@ -1,9 +1,6 @@
-﻿@using ChatRoomApp.Web.Models.Dtos
-
-@model PartialMessageViewModel
+﻿@model PartialMessageViewModel
 
 
-        <!--Javascript-->
 
 <div id="messageListPartial">
 @foreach (var message in Model.Messages)
@@ -20,11 +17,4 @@
             </div>
         </li>         
     }
-
-   @* <div id"isTyping">
-    @if( @Model.UserInfo.isTyping == true)
-        {
-            <p> @Model.UserInfo.Name Is Typing...</p>
-        }
-    </div>*@
 </div>

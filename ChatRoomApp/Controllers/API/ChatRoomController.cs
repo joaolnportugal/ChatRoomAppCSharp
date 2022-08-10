@@ -29,24 +29,34 @@ namespace ChatRoomApp.Web.Controllers.API
         [Route("getPartialMessages")]       
         public IActionResult GetPartialMessages(int userId)
         {
-            //if ( isTyping == true)
-            //{
-            //    _chatRoomService.IsTyping(userId);
-            //}
-            //if (isTyping == false)
-            //{
-            //    _chatRoomService.IsNotTyping(userId);
-            //}
+           
 
 
             var messageLists = _chatRoomService.GetMessages();
-            var userinfo = _chatRoomService.GetById(userId);
-            //var partialDto = new PartialMessageDto(null, messageLists, userinfo);
+          
             var viewModel = new PartialMessageViewModel(messageLists);
 
 
             //tem que retornar a rout e o modelo!
             return PartialView("Partials/Partial", viewModel);
+        }
+
+        [Route("getPartialUsers")]
+        
+        public IActionResult GetPartialUsers(int userId, bool isTyping)
+        {
+            if (isTyping == true)
+            {
+                _chatRoomService.IsTyping(userId);
+            }
+            if (isTyping == false)
+            {
+                _chatRoomService.IsNotTyping(userId);
+            }
+            var userinfo = _chatRoomService.GetUsers();
+            var viewModel = new PartialUsersViewModel(userinfo);
+
+            return PartialView("Partials/UsersPartial", viewModel);
         }
     }
 }

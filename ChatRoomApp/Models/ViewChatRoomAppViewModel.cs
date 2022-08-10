@@ -12,7 +12,7 @@ namespace ChatRoomApp.Web.Models
         public string UserName { get; set; } 
 
         public bool isLoggedIn { get; set; }
-        public bool isTyping { get; set; }
+        public bool isTyping { get; set; } = false;
 
         public Color UserColor { get; set; } 
         public string ColorCssClasses { get; set; }
@@ -23,18 +23,15 @@ namespace ChatRoomApp.Web.Models
         public List<UserInfo> Users { get; set; } = new List<UserInfo>();
 
         public UserInfo UserInfo { get; set; } = new UserInfo();
-        IEnumerable<Messages> MessageList { get; set; } = new List<Messages>();
-
         public PartialMessageViewModel MessageModel { get; set; }
+        public PartialUsersViewModel UserModel { get; set; }
+
 
         public ViewChatRoomAppViewModel()
         {
             
         }
-        public ViewChatRoomAppViewModel(User user, IEnumerable<Messages> MessageList)
-        {
 
-        }
 
         public ViewChatRoomAppViewModel(User user, List<User> userList, List<Messages> messageList)
         {
@@ -46,7 +43,7 @@ namespace ChatRoomApp.Web.Models
             Users = userList.Select(t => new UserInfo(t)).ToList();
             Messages = messageList.Select(t => new MessageInfo(t)).ToList();
             isTyping = user.IsTyping;
-
+            UserModel = new PartialUsersViewModel(userList);
             MessageModel = new PartialMessageViewModel(messageList);
         }
 
@@ -59,7 +56,7 @@ namespace ChatRoomApp.Web.Models
         public int userId { get; set; }
         public string Name { get; set; }
         public string ColorCssClasses { get; set; }
-        public bool isTyping { get; set; }
+        public bool isTyping { get; set; } = false;
         public ICollection<Messages> Messages { get; set; }
         public bool isLoggedIn { get; set; }
 

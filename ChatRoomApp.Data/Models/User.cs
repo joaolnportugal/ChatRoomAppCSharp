@@ -43,7 +43,7 @@ namespace ChatRoomApp.Data.Models
                 .IsRequired();
             
             builder.Property(x => x.IsTyping)
-                .HasDefaultValue()
+                .HasDefaultValue(false)
                 .IsRequired();
         }
     }

@@ -44,12 +44,14 @@ namespace ChatRoomApp.Business.Services
                 _user.IsLoggedIn = true;
                 _user.UserColor = user.UserColor;
                 
+                
                               
                 _userRepo.Save();
                 return _user;
             }           
             else 
             {
+                
                 _userRepo.Add(user);
                 _userRepo.Save();
 
